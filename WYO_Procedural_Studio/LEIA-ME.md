@@ -69,3 +69,15 @@ Agora o estúdio inclui o modo **RO Sprite Builder**, pensado para quando você 
 4. Escolha `Formato do sprite`, `Alvo da referência` e `Saída do sprite`.
 5. Para sprites, use **PNG sem fundo**.
 6. Exporte o **Projeto JSON** ou copie a especificação para o Codex.
+
+## v1.2 — Demonstração frontal renderizada por código
+
+O modo **RO Sprite Builder** agora contém um desenho procedural de um cavaleiro masculino frontal, com cabelo castanho, armadura branca/dourada, capa azul e PNG com alfa transparente. Desenhado em Canvas de 128×128 e ampliado por nearest-neighbor. Para reproduzir a imagem:
+
+```bash
+pip install playwright
+python -m playwright install chromium
+python render_codex.py --project preset_sprite_masculino_frontal.json --mode spritebuilder --background transparent --size 512x512 --out sprite_masculino_frontal_teste.png
+```
+
+**Importante:** este sprite é um template procedural feito especificamente para o cavaleiro da referência. O motor NÃO detecta e recorta automaticamente qualquer personagem de uma imagem. Seleção feminina, 8 direções e idle ainda geram especificações JSON, não artes finais automáticas.
