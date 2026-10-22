@@ -32,3 +32,7 @@ ComfyUI opera localmente; usar os workflows oficiais de image-to-image, inpainti
 - Campos novos no JSON: `spriteMode`, `subjectTarget`, `styleProfile`, `spriteBg`.
 - Para sprites, priorize `spriteBg=transparent`, preservação 1:1, sem espelhamento.
 - Exemplo do usuário: casal como referência, `subjectTarget=male`, `spriteMode=front_single`, `styleProfile=ro_classic`, saída `.png` sem fundo.
+
+## v1.2 — Motor de sprite frontal executável
+
+O `gerador.html` renderiza um sprite masculino frontal de demonstração através de formas Canvas, sem IA remota. Use o `render_codex.py` com o preset JSON para produzir PNG transparente. Para outras referências, **não afirme conversão automática**; é necessário adaptar o template por código ou usar um motor guiado por referência. Campos `subjectTarget`, `styleProfile` e `spriteMode` representam especificação e ainda não implementam outros sujeitos ou 8 direções.
