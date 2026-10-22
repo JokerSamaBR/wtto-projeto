@@ -1,0 +1,51 @@
+{
+  "format": "WYO-PROCEDURAL-STUDIO",
+  "version": 1,
+  "settings": {
+    "mode": "spritebuilder",
+    "seed": 27570,
+    "size": "512x512",
+    "bg": "transparent",
+    "intensity": 0.55,
+    "detail": 2,
+    "glow": 0.45,
+    "rotation": 0,
+    "cx": 0.5,
+    "cy": 0.5,
+    "refMode": "palette",
+    "refFit": "contain",
+    "theme": "wyoDark",
+    "colors": [
+      "#0a1527",
+      "#62ded3",
+      "#9a7ee7",
+      "#f6d695"
+    ],
+    "referenceData": null,
+    "referenceName": null,
+    "additionalReferences": [],
+    "assetType": "sprite",
+    "instructions": "Separar apenas o personagem masculino da referência. Gerar sprite frontal único, estilo Ragnarok Online, preservar cabelo castanho bagunçado, armadura branco/dourado, capa azul, proporções chibi e leitura limpa. Exportar .png sem fundo.",
+    "spriteMode": "front_single",
+    "subjectTarget": "male",
+    "styleProfile": "ro_classic",
+    "spriteBg": "transparent"
+  },
+  "guidance": {
+    "brand": "World Yggdrasil Online",
+    "style": "anime fantasy Ragnarok-inspired, clean lines, anatomically consistent, exact reference details preserved when requested",
+    "assetType": "sprite",
+    "spriteMode": "front_single",
+    "subjectTarget": "male",
+    "styleProfile": "ro_classic",
+    "outputBackground": "transparent",
+    "instructions": "Separar apenas o personagem masculino da referência. Gerar sprite frontal único, estilo Ragnarok Online, preservar cabelo castanho bagunçado, armadura branco/dourado, capa azul, proporções chibi e leitura limpa. Exportar .png sem fundo.",
+    "referenceCount": 0,
+    "preservation": [
+      "Nunca espelhar sprite direcional",
+      "Preservar proporções e slots 1:1 quando solicitado",
+      "Exportar .png sem fundo"
+    ],
+    "warning": "Procedural modes do not reconstruct detailed characters or pixel sprites; use controlled image-to-image or manual art tools for those."
+  }
+}
