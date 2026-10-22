@@ -1,0 +1,174 @@
+{
+  "format": "WYO-ASSET-STUDIO",
+  "version": 2,
+  "tool": "Reference Sheet Processor",
+  "operation": "extract_normalize_existing_frames",
+  "directions": 8,
+  "layout": "2x4",
+  "columns": 4,
+  "rows": 2,
+  "cell_size": [
+    224,
+    256
+  ],
+  "dimensions": [
+    896,
+    512
+  ],
+  "background": "transparent",
+  "source_notice": "Pre-existing visual frames; processor does not create missing viewpoints.",
+  "frames": [
+    {
+      "index": 1,
+      "direction": "frente",
+      "source_bbox": [
+        38,
+        110,
+        309,
+        596
+      ],
+      "sheet_cell": [
+        0,
+        0
+      ],
+      "png": "01_frente.png",
+      "final_size": [
+        133,
+        240
+      ]
+    },
+    {
+      "index": 2,
+      "direction": "diagonal_frente_esquerda",
+      "source_bbox": [
+        372,
+        110,
+        625,
+        599
+      ],
+      "sheet_cell": [
+        1,
+        0
+      ],
+      "png": "02_diagonal_frente_esquerda.png",
+      "final_size": [
+        124,
+        240
+      ]
+    },
+    {
+      "index": 3,
+      "direction": "lado_esquerdo",
+      "source_bbox": [
+        658,
+        115,
+        918,
+        599
+      ],
+      "sheet_cell": [
+        2,
+        0
+      ],
+      "png": "03_lado_esquerdo.png",
+      "final_size": [
+        128,
+        240
+      ]
+    },
+    {
+      "index": 4,
+      "direction": "diagonal_tras_esquerda",
+      "source_bbox": [
+        962,
+        110,
+        1226,
+        599
+      ],
+      "sheet_cell": [
+        3,
+        0
+      ],
+      "png": "04_diagonal_tras_esquerda.png",
+      "final_size": [
+        129,
+        240
+      ]
+    },
+    {
+      "index": 5,
+      "direction": "tras",
+      "source_bbox": [
+        33,
+        661,
+        316,
+        1146
+      ],
+      "sheet_cell": [
+        0,
+        1
+      ],
+      "png": "05_tras.png",
+      "final_size": [
+        140,
+        240
+      ]
+    },
+    {
+      "index": 6,
+      "direction": "diagonal_tras_direita",
+      "source_bbox": [
+        344,
+        665,
+        611,
+        1146
+      ],
+      "sheet_cell": [
+        1,
+        1
+      ],
+      "png": "06_diagonal_tras_direita.png",
+      "final_size": [
+        133,
+        240
+      ]
+    },
+    {
+      "index": 7,
+      "direction": "lado_direito",
+      "source_bbox": [
+        652,
+        659,
+        900,
+        1146
+      ],
+      "sheet_cell": [
+        2,
+        1
+      ],
+      "png": "07_lado_direito.png",
+      "final_size": [
+        122,
+        240
+      ]
+    },
+    {
+      "index": 8,
+      "direction": "diagonal_frente_direita",
+      "source_bbox": [
+        939,
+        659,
+        1205,
+        1146
+      ],
+      "sheet_cell": [
+        3,
+        1
+      ],
+      "png": "08_diagonal_frente_direita.png",
+      "final_size": [
+        131,
+        240
+      ]
+    }
+  ]
+}

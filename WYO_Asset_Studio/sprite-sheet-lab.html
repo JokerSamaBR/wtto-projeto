@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WYO Asset Studio v2.1 — Sprite Sheet Lab</title>
+<style>
+:root{font-family:Inter,system-ui,'Segoe UI',sans-serif;color:#e7edf8;background:#0a101b;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}a{color:#88d3fd;text-decoration:none}
+.wrap{max-width:1500px;margin:auto;padding:28px}.top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:24px}.top p{color:#9cacbe;margin:6px 0;font-size:14px}h1{font-size:24px;margin:0}h2{font-size:16px;margin:0 0 16px}.pill{padding:7px 11px;border-radius:20px;background:#183345;color:#9de7d8;font-size:12px}
+.columns{display:grid;grid-template-columns:minmax(280px,350px) minmax(0,1fr);gap:18px}.panel{background:#101d2d;border:1px solid #263a4e;border-radius:17px;padding:20px}.controls{display:grid;gap:17px}.field{display:grid;gap:7px;font-size:13px;color:#b9c7dc}.field input[type=file],.field select{width:100%;background:#17293c;border:1px solid #36506a;border-radius:10px;padding:11px;color:#f5f8ff}.btn{background:#284765;border:1px solid #3d5a74;border-radius:10px;color:#fff;padding:11px 13px;cursor:pointer;font-weight:650}.btn.primary{background:#15a98e;border-color:#15a98e;color:#061b1c}.btn:disabled{opacity:.4;cursor:not-allowed}.buttons{display:grid;grid-template-columns:1fr 1fr;gap:9px}.note{color:#8fa4bf;font-size:12px;line-height:1.55;background:#0d1b2b;padding:12px;border-left:3px solid #58b4b5;border-radius:5px}.previewZone{background:#111a29;border-radius:12px;min-height:360px;display:grid;place-items:center;overflow:auto;border:1px solid #22354a;padding:16px;background-image:linear-gradient(45deg,#192337 25%,transparent 25%),linear-gradient(-45deg,#192337 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#192337 75%),linear-gradient(-45deg,transparent 75%,#192337 75%);background-size:24px 24px;background-position:0 0,0 12px,12px -12px,-12px 0}canvas{max-width:100%;height:auto;image-rendering:auto}.frameGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:14px}.frameGrid .frame{background:#132237;border-radius:10px;padding:5px 5px 8px;text-align:center;font-size:11px;color:#9eb0c3}.frame canvas{max-width:100%;display:block;margin:auto}.status{color:#8fe5cd;font-size:13px;min-height:20px}.muted{color:#9dacbf;font-size:13px;margin:10px 0 0}@media(max-width:850px){.columns{grid-template-columns:1fr}.wrap{padding:13px}.top{flex-wrap:wrap}.frameGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body><div class="wrap">
+<div class="top"><div><h1>WYO / Sprite Sheet Lab</h1><p>Asset Studio v2.1 · Normalize 8 direções já desenhadas · 100% local</p></div><a href="index.html">← Voltar ao Asset Studio</a><span class="pill">PNG com transparência</span></div>
+<div class="columns">
+<aside class="panel controls">
+<h2>Referência de sprites</h2>
+<label class="field">Imagem com 8 direções em 4 colunas × 2 linhas<input id="source" type="file" accept="image/png,image/webp,image/jpeg"></label>
+<label class="field">Tamanho de cada célula<select id="tile"><option value="192x240">192 × 240</option><option value="224x256" selected>224 × 256 (detalhado)</option><option value="256x320">256 × 320</option></select></label>
+<label class="field">Qualidade de redução<select id="quality"><option value="high" selected>Alta definição · Lanczos no Python / Canvas no navegador</option><option value="pixel">Pixel art · pixels definidos</option></select></label>
+<label class="field">Limiar do alfa<input id="alpha" type="range" min="1" max="90" step="1" value="32"><output id="alphaOut">32</output></label>
+<button class="btn primary" id="generate" disabled>Processar 8 sprites</button>
+<div class="buttons"><button class="btn" id="saveSheet" disabled>Baixar Sheet PNG</button><button class="btn" id="saveJSON" disabled>Exportar JSON</button></div>
+<button class="btn" id="downloadFrames" disabled>Baixar os 8 PNGs individuais</button>
+<div class="note"><strong>Este módulo não inventa direções.</strong> É necessário fornecer os oito ângulos previamente desenhados. O Studio separa, centraliza, harmoniza a escala e exporta os quadros individualmente ou em sheet transparente. Não usa API nem créditos.</div>
+<p class="status" id="status">Selecione a imagem de referência com oito sprites.</p>
+</aside>
+<section class="panel"><h2>Resultado</h2><div class="previewZone"><canvas id="result" width="896" height="512"></canvas></div><p class="muted" id="info">A prévia será exibida após importar e processar sua referência.</p><div class="frameGrid" id="frames"></div></section>
+</div></div>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);let input=null, generated=[], meta=null;
+const labels=['Frente','Diagonal frente esquerda','Lado esquerdo','Diagonal trás esquerda','Trás','Diagonal trás direita','Lado direito','Diagonal frente direita'];
+const tr=document.createElement('canvas'); const tctx=tr.getContext('2d',{willReadFrequently:true});
+function status(msg){$('status').textContent=msg}
+$('alpha').addEventListener('input',()=>{$('alphaOut').value=$('alpha').value});
+$('source').addEventListener('change',async e=>{
+ const file=e.target.files?.[0];if(!file)return;
+ try{const im=new Image();const url=URL.createObjectURL(file);await new Promise((ok,no)=>{im.onload=ok;im.onerror=no;im.src=url});
+ input=im;tr.width=im.naturalWidth;tr.height=im.naturalHeight;tctx.clearRect(0,0,tr.width,tr.height);tctx.drawImage(im,0,0);URL.revokeObjectURL(url);$('generate').disabled=false;status('Referência carregada: '+file.name)}catch{status('Não foi possível abrir a referência.')} });
+function smooth(a,index){let v=0;for(let j=-2;j<=2;j++)v+=a[Math.max(0,Math.min(a.length-1,index+j))];return v}
+function findCut(profile,target,search){const a=Math.max(2,target-search),b=Math.min(profile.length-3,target+search);let min=Infinity;for(let x=a;x<=b;x++)min=Math.min(min,smooth(profile,x));let groups=[],from=null;for(let x=a;x<=b+1;x++){const zero=x<=b && smooth(profile,x)<=min+.001;if(zero&&from===null)from=x;if(!zero&&from!==null){groups.push(Math.round((from+x-1)/2));from=null}}return groups.reduce((best,x)=>Math.abs(x-target)<Math.abs(best-target)?x:best,target)}
+function projections(data,w,h,axis,rect,thr){const [x0,y0,x1,y1]=rect;const n=axis==='x'?w:h,proj=new Float64Array(n);for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)if(data[(y*w+x)*4+3]>thr)proj[axis==='x'?x:y]++;return proj}
+function nonemptyAlpha(data,srcW,rect,threshold){let minx=Infinity,miny=Infinity,maxx=-1,maxy=-1;const [x0,y0,x1,y1]=rect;for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)if(data[(y*srcW+x)*4+3]>threshold){minx=Math.min(minx,x);miny=Math.min(miny,y);maxx=Math.max(maxx,x);maxy=Math.max(maxy,y)}if(maxx<0)throw Error('Um dos quadros está vazio.');return [Math.max(x0,minx-2),Math.max(y0,miny-2),Math.min(x1,maxx+3),Math.min(y1,maxy+3)]}
+function createCanvas(w,h){const c=document.createElement('canvas');c.width=w;c.height=h;return c}
+function saveData(data,name){const a=document.createElement('a');a.href=data;a.download=name;document.body.appendChild(a);a.click();a.remove()}
+function reset(){generated=[];meta=null;$('frames').replaceChildren();for(let b of ['saveSheet','saveJSON','downloadFrames'])$(b).disabled=true}
+function generate(){if(!input)return;reset();try{
+ const w=tr.width,h=tr.height,px=tctx.getImageData(0,0,w,h).data,thr=+$('alpha').value,[tileW,tileH]=$('tile').value.split('x').map(Number),quality=$('quality').value;
+ const yp=projections(px,w,h,'y',[0,0,w,h],thr),ycut=findCut(yp,Math.round(h/2),Math.round(h/10)),yb=[0,ycut,h];
+ const sheet=$('result');sheet.width=tileW*4;sheet.height=tileH*2;let c=sheet.getContext('2d');c.clearRect(0,0,sheet.width,sheet.height);let records=[];
+ for(let row=0;row<2;row++){
+  const yy0=yb[row],yy1=yb[row+1],xp=projections(px,w,h,'x',[0,yy0,w,yy1],thr),xb=[0];for(let j=1;j<4;j++)xb.push(findCut(xp,Math.round(j*w/4),Math.round(w/20)));xb.push(w);
+  for(let col=0;col<4;col++){
+   const i=row*4+col,b=nonemptyAlpha(px,w,[xb[col],yy0,xb[col+1],yy1],12),bw=b[2]-b[0],bh=b[3]-b[1],scale=Math.min((tileW-18)/bw,(tileH-16)/bh),dw=Math.max(1,Math.floor(bw*scale)),dh=Math.max(1,Math.floor(bh*scale));
+   const cell=createCanvas(tileW,tileH),cc=cell.getContext('2d');cc.imageSmoothingEnabled=quality==='high';cc.imageSmoothingQuality='high';let ox=Math.floor((tileW-dw)/2),oy=tileH-8-dh;
+   if(quality==='pixel'){const s=createCanvas(Math.max(1,Math.floor(dw/2)),Math.max(1,Math.floor(dh/2)));s.getContext('2d').drawImage(tr,...b.slice(0,2),bw,bh,0,0,s.width,s.height);cc.imageSmoothingEnabled=false;cc.drawImage(s,ox,oy,dw,dh)}
+   else cc.drawImage(tr,b[0],b[1],bw,bh,ox,oy,dw,dh);
+   c.drawImage(cell,col*tileW,row*tileH);generated.push(cell);
+   records.push({index:i+1,direction:labels[i],source_bbox:b,sheet_cell:[col,row],size:[tileW,tileH]});
+   const wrapper=document.createElement('div');wrapper.className='frame';wrapper.appendChild(cell);let caption=document.createElement('span');caption.textContent=(i+1)+' · '+labels[i];wrapper.appendChild(caption);$('frames').appendChild(wrapper)
+  }
+ }
+ meta={format:'WYO-ASSET-STUDIO',version:2,module:'sprite-sheet-lab',operation:'extract_normalize_existing_frames',rows:2,columns:4,background:'transparent',dimensions:[sheet.width,sheet.height],reference:'Local image supplied by user; original viewpoints not generated by this module',frames:records};
+ ['saveSheet','saveJSON','downloadFrames'].forEach(id=>$(id).disabled=false);
+ $('info').textContent=`${sheet.width} × ${sheet.height} · 8 imagens, 2 linhas × 4 colunas · PNG RGBA`;
+ status('Processamento concluído pelo WYO Asset Studio.');
+ }catch(e){reset();status('Erro: '+e.message)}}
+$('generate').addEventListener('click',generate);
+$('saveSheet').addEventListener('click',()=>saveData($('result').toDataURL('image/png'),'WYO_NPC_8_Direcoes.png'));
+$('saveJSON').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(meta,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);saveData(url,'WYO_sprite_sheet_project.json');setTimeout(()=>URL.revokeObjectURL(url),1500)});
+$('downloadFrames').addEventListener('click',()=>{generated.forEach((canvas,i)=>setTimeout(()=>saveData(canvas.toDataURL('image/png'),String(i+1).padStart(2,'0')+'_'+labels[i].toLowerCase().replaceAll(' ','_')+'.png'),i*250))});
+</script>
+</body></html>

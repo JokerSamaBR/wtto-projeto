@@ -27,3 +27,17 @@ JSON v2 mantém a descrição completa e pode incluir referências locais (data 
 ## Roteiro
 
 Para replicar livremente personagens complexos e ângulos inéditos, próximo módulo recomendado: integração local com **ComfyUI** e modelo open-weight licenciado adequadamente, com img2img/controle de estrutura, treinamento opcional de LoRA, máscaras e validação por direção. Essa integração **não está implementada** nesta versão.
+
+## v2.1 — Sprite Sheet Lab (8 direções reais)
+
+- Abra `sprite-sheet-lab.html` ou o link **Sprite Sheet Lab** no menu do Studio.
+- Importe uma **imagem que já contenha oito vistas** (4 colunas × 2 linhas).
+- O Studio localiza espaços transparentes, recorta cada direção, ajusta escala e alinhamento e exporta sheet PNG transparente de forma reproduzível.
+- Também exporta oito PNGs individuais e manifesto JSON. Não inverte nem duplica direções.
+- Por código, instale `pip install pillow numpy` e rode:
+
+```bash
+python render/sheet_pipeline.py --input sua_sheet_de_referencia.png --output exports/npc_cavaleiro
+```
+
+**Limite:** esta função processa frames fornecidos. Não cria vistas inéditas a partir de um único personagem frontal. A demonstração foi processada de uma sheet de oito desenhos pré-existentes; não foi desenhada inteiramente pelo motor procedural.

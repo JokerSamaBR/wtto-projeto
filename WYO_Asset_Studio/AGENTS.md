@@ -9,3 +9,6 @@
 - Não publicar imagens privadas/referências em GitHub sem indicação do usuário.
 - As templates existentes em v1 devem continuar acessíveis; publicar v2 em pasta separada.
 - Validação: JS sem erros, export PNG, alfa, viewport, e teste do projeto JSON.
+
+## v2.1 — Sprite Sheet Lab
+Usar `render/sheet_pipeline.py` em sprites que já contenham 8 direções. Renderizar PNG RGBA transparente, 4 colunas × 2 linhas, separar oito quadros sem espelhar nem repetir, gerar manifesto. Nunca afirmar que este pipeline cria novas vistas a partir de imagem frontal única.
