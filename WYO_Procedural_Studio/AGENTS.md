@@ -29,3 +29,7 @@ ComfyUI opera localmente; usar os workflows oficiais de image-to-image, inpainti
 ## v1.1 — Observações para agentes
 
 Use `spritebuilder` quando o usuário pedir sprites RO a partir de referência. Não prometa reconstrução perfeita pelo Canvas; o Canvas organiza a especificação, paleta, foco e exportação, enquanto a etapa fiel de sprite deve ser conduzida por image-to-image / pipeline controlado. Sempre que `spriteBg=transparent`, a saída final deve ser `.png` sem fundo.
+
+## v1.2 — Limite do renderer
+
+O modo `spritebuilder` agora gera de fato, por Canvas, um cavaleiro frontal masculino em PNG com alfa. É um modelo programático de demonstração, não modelo AI nem conversor universal de imagens. Não prometa geração automática de personagens distintos, sprites de 8 direções ou idle apenas alterando o JSON.
