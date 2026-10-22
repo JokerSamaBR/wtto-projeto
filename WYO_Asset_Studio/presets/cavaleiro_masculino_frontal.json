@@ -1,0 +1,30 @@
+{
+  "format": "WYO-ASSET-STUDIO",
+  "version": 2,
+  "settings": {
+    "format": "WYO-ASSET-STUDIO",
+    "version": 2,
+    "module": "sprite",
+    "assetType": "sprite_character",
+    "spriteSource": "template",
+    "spriteStyle": "ro_detailed",
+    "directions": 1,
+    "pixelSize": 2,
+    "crop": 0,
+    "removeBg": "off",
+    "references": [],
+    "frames": [],
+    "logoText": "World Yggdrasil",
+    "logoSub": "ONLINE",
+    "logoPreset": "fantasy",
+    "logoMascot": true,
+    "logoWings": true,
+    "fxType": "rift",
+    "fxIntensity": 74,
+    "seed": 27570,
+    "size": 512,
+    "background": "transparent",
+    "subjectTarget": "male",
+    "instructions": "Cavaleiro masculino, visão frontal única, cabelo castanho bagunçado, capa azul, armadura branca e dourada, aparência anime/fantasia inspirada em Ragnarok Online, PNG sem fundo. A referência original inclui personagem feminina e coração encobrindo o torso: usar modelo redesenhado, não recorte automático."
+  }
+}

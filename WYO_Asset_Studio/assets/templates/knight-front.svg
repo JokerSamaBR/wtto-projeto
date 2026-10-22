@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="320" viewBox="0 0 256 320">
+<defs>
+ <linearGradient id="hair" x1=".12" y1="0" x2=".85" y2="1"><stop stop-color="#dc9a6d"/><stop offset=".28" stop-color="#9a5a40"/><stop offset=".70" stop-color="#60372f"/><stop offset="1" stop-color="#412832"/></linearGradient>
+ <linearGradient id="skin" x1=".15" y1="0" x2=".85" y2="1"><stop stop-color="#fff0d3"/><stop offset=".57" stop-color="#ffcbac"/><stop offset="1" stop-color="#d88678"/></linearGradient>
+ <linearGradient id="metal" x1=".15" y1="0" x2=".85" y2="1"><stop stop-color="#fffdf5"/><stop offset=".37" stop-color="#f7f1ea"/><stop offset=".70" stop-color="#c7c9d4"/><stop offset="1" stop-color="#84899f"/></linearGradient>
+ <linearGradient id="gold" x1=".08" y1="0" x2=".85" y2="1"><stop stop-color="#fff7cf"/><stop offset=".30" stop-color="#f9d48c"/><stop offset=".70" stop-color="#c48741"/><stop offset="1" stop-color="#85502e"/></linearGradient>
+ <linearGradient id="cape" x1=".18" y1=".14" x2=".81" y2="1"><stop stop-color="#6397dc"/><stop offset=".33" stop-color="#3461a5"/><stop offset=".72" stop-color="#223e80"/><stop offset="1" stop-color="#15275a"/></linearGradient>
+ <linearGradient id="pants" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5e4f50"/><stop offset=".5" stop-color="#3d3444"/><stop offset="1" stop-color="#27293c"/></linearGradient>
+ <radialGradient id="shine"><stop stop-color="#ffffff" stop-opacity=".96"/><stop offset=".45" stop-color="#fffae0" stop-opacity=".6"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+</defs>
+<!-- Facing front, original procedural vector work. Pixel render performed by studio. -->
+<g stroke="#2d2331" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
+<!-- flowing cloak base, visible behind body, not wings -->
+<path d="M104 120 C74 130 44 145 32 167 C22 185 24 218 9 265 C24 264 35 256 43 246 C46 257 57 267 73 269 C77 251 86 229 106 213 L128 163 Z" fill="url(#cape)"/>
+<path d="M152 120 C188 130 211 154 226 178 C235 207 237 235 248 266 C230 261 218 252 210 241 C200 263 185 268 170 269 C159 248 155 229 148 213 L127 163 Z" fill="url(#cape)"/>
+<path d="M100 131 C70 148 43 169 35 215 L27 246 C47 234 52 203 75 177 M158 135 C191 153 216 178 223 218 L232 246" fill="none" stroke="#90b0e4" stroke-width="3"/>
+<path d="M57 182 C46 199 40 216 38 235 L47 227 L50 237" fill="none" stroke="#e5b870" stroke-width="3"/>
+<path d="M196 180 C211 199 216 216 219 237 L207 226 L204 237" fill="none" stroke="#e5b870" stroke-width="3"/>
+<path d="M64 204 L66 226 M64 211 L56 206 M65 211 L71 205 M64 218 L57 216 M65 219 L73 214" stroke="#eec581" stroke-width="2" fill="none"/>
+<path d="M192 204 L190 226 M192 211 L184 206 M191 211 L198 205 M190 218 L183 216 M191 219 L198 214" stroke="#eec581" stroke-width="2" fill="none"/>
+<!-- sturdy body and legs -->
+<path d="M95 220 Q84 241 89 269 L106 286 L127 274 L124 224Z" fill="url(#pants)"/>
+<path d="M133 224 L153 219 Q167 244 160 270 L149 285 L128 273Z" fill="url(#pants)"/>
+<path d="M94 245 L102 256 L98 273 M151 251 L144 262 L147 273" stroke="#87767b" stroke-width="3" fill="none"/>
+<!-- boots separate front natural stance -->
+<path d="M90 267 L110 265 L118 282 L118 298 L103 308 L78 307 L71 299 L75 286 Z" fill="url(#metal)"/>
+<path d="M147 265 L168 271 L180 286 L185 300 L180 308 L152 308 L139 298 L138 283Z" fill="url(#metal)"/>
+<path d="M77 298 L103 300 L116 292 L118 301 Q109 314 77 310 L72 304Z" fill="#5b5363"/>
+<path d="M143 294 Q160 301 183 299 L182 307 Q162 318 145 307Z" fill="#595260"/>
+<path d="M77 286 Q90 276 105 282 L113 287 L100 290 L78 291Z" fill="url(#gold)" stroke="#9c6a40" stroke-width="1.8"/>
+<path d="M145 282 Q154 277 167 286 L176 294 L152 291Z" fill="url(#gold)" stroke="#9c6a40" stroke-width="1.8"/>
+<path d="M80 295 L93 293 M154 297 L174 300" fill="none" stroke="#fff9e5" stroke-width="2.2"/>
+<!-- torso undercoat -->
+<path d="M99 135 Q128 128 159 138 L172 199 L157 247 Q129 257 97 245 L84 197 Z" fill="#35436c"/>
+<!-- layered waist armor, asymmetric folds -->
+<path d="M94 197 Q85 221 75 237 L96 251 L118 246 L119 206 Z" fill="url(#metal)"/>
+<path d="M158 199 L136 207 L138 250 L157 252 L179 239Z" fill="url(#metal)"/>
+<path d="M96 203 L116 214 L114 239 L98 244 L82 237Z" fill="url(#metal)" stroke="#b58c61" stroke-width="2"/>
+<path d="M143 214 L160 205 L171 236 L158 244 L141 239Z" fill="url(#metal)" stroke="#b58c61" stroke-width="2"/>
+<path d="M114 211 L142 211 L143 261 L129 278 L114 264 Z" fill="url(#cape)"/>
+<path d="M118 217 L137 217 L139 255 L129 270 L118 257 Z" fill="#4d7dbd" stroke="none"/>
+<path d="M115 217 L115 261 L129 278 L144 262 L144 216" fill="none" stroke="url(#gold)" stroke-width="3"/>
+<path d="M128 226 L128 257 M128 239 l-8 -8 M128 243 l8 -7 M128 246 l-9 -3 M128 248 l10 -4" fill="none" stroke="#f5ca74" stroke-width="2"/>
+<!-- arms -->
+<path d="M93 150 Q69 153 63 174 L58 209 L69 230 L85 222 L93 187 L112 158Z" fill="#2b324e"/>
+<path d="M163 150 Q186 153 191 174 L197 209 L187 230 L173 223 L163 186 L144 158Z" fill="#2b324e"/>
+<path d="M65 184 L84 180 L88 212 L73 220 L61 210Z" fill="url(#metal)"/>
+<path d="M173 181 L190 184 L195 211 L182 219 L169 211Z" fill="url(#metal)"/>
+<path d="M64 192 L83 188 M174 189 L192 194" fill="none" stroke="#fff9e5" stroke-width="2"/>
+<path d="M61 211 Q71 210 85 217 L83 235 L69 241 L57 232Z" fill="#302b3c"/>
+<path d="M172 217 Q187 210 196 213 L199 232 L187 242 L172 233Z" fill="#302b3c"/>
+<path d="M62 222 L82 226 M175 226 L193 222" fill="none" stroke="#a68c76" stroke-width="2.5"/>
+<!-- main chestplate -->
+<path d="M101 136 Q126 130 154 135 L168 165 L158 200 Q129 210 100 199 L88 166 Z" fill="url(#metal)" stroke-width="3.4"/>
+<path d="M106 141 L149 141 L158 162 L150 189 L129 198 L108 189 L99 162Z" fill="#faf5eb" stroke="#c4af9d" stroke-width="1.7"/>
+<path d="M107 151 L118 158 L117 186 L108 182 M149 150 L140 159 L141 185 L150 180" fill="#adb3c1" stroke="none"/>
+<path d="M128 141 L128 198" fill="none" stroke="#b78244" stroke-width="2.4"/>
+<path d="M100 185 Q127 196 156 185" fill="none" stroke="#d9a955" stroke-width="2"/>
+<!-- blue high collar and matching cravat -->
+<path d="M102 131 L116 121 L129 134 L143 121 L156 132 L151 155 L128 162 L105 154 Z" fill="url(#cape)"/>
+<path d="M111 130 L127 146 L144 129" fill="none" stroke="#e6b56a" stroke-width="3.5"/>
+<path d="M123 143 L133 143 L132 154 L127 159 L122 154Z" fill="url(#gold)"/>
+<!-- belt -->
+<path d="M91 197 Q126 206 166 196 L170 212 Q129 225 87 211Z" fill="#4b302c"/>
+<path d="M93 200 Q129 210 163 200" fill="none" stroke="#a77953" stroke-width="3"/>
+<path d="M118 200 L141 200 L142 218 L119 219 Z" fill="url(#gold)"/>
+<path d="M123 204 L137 204 L137 214 L124 214Z" fill="#754a37" stroke="#fff0bd" stroke-width="1.5"/>
+<!-- elegant pauldrons -->
+<path d="M94 140 Q78 129 64 142 Q51 151 52 174 L66 184 Q84 185 99 170 L107 152Z" fill="url(#gold)"/>
+<path d="M164 139 Q184 131 195 149 Q205 166 204 178 L187 186 Q169 185 158 173 L152 153Z" fill="url(#gold)"/>
+<path d="M92 143 Q76 136 67 146 Q59 154 59 171 L69 179 Q86 178 100 167 L102 153Z" fill="url(#metal)" stroke="#aa784b" stroke-width="2"/>
+<path d="M165 143 Q183 136 191 151 Q197 160 198 173 L185 180 Q167 176 159 166 L157 153Z" fill="url(#metal)" stroke="#aa784b" stroke-width="2"/>
+<path d="M68 154 Q80 144 89 150 L99 158 M168 151 Q180 146 189 158" fill="none" stroke="#fffefa" stroke-width="3"/>
+<path d="M59 171 L71 177 L91 168 M166 171 L186 179 L198 173" fill="none" stroke="#c18a4b" stroke-width="2.5"/>
+<path d="M75 151 L81 156 L76 161 L71 157Z M179 151 L185 155 L180 161 L175 156Z" fill="url(#gold)" stroke-width="1.2"/>
+<!-- neck + ears -->
+<path d="M111 111 L145 110 L145 137 Q129 145 110 135Z" fill="url(#skin)"/>
+<path d="M72 91 Q62 85 61 99 Q61 112 73 115 M182 91 Q194 87 193 102 Q190 116 180 113" fill="url(#skin)"/>
+<!-- face cheeks and jaw, clear chibi but not excessively wide -->
+<path d="M80 58 Q124 33 170 61 Q189 87 177 120 Q166 144 129 151 Q91 147 78 125 Q67 94 80 58Z" fill="url(#skin)" stroke-width="3.3"/>
+<path d="M85 120 Q93 139 125 144 Q161 142 170 122" fill="none" stroke="#c48477" stroke-width="2.1" opacity=".55"/>
+<ellipse cx="94" cy="111" rx="14" ry="8" fill="#f49c94" opacity=".62" stroke="none"/>
+<ellipse cx="162" cy="112" rx="14" ry="8" fill="#f49c94" opacity=".60" stroke="none"/>
+<path d="M88 106 l-4 3 M90 112 l-4 3 M163 105 l5 3 M163 111 l5 2" fill="none" stroke="#e78b88" stroke-width="1.8"/>
+<!-- closed crescent happy eyes like reference -->
+<path d="M92 100 Q107 83 119 99 Q107 95 94 103" fill="#54362f" stroke="#412832" stroke-width="1"/>
+<path d="M139 100 Q153 83 168 101 Q156 96 142 102" fill="#54362f" stroke="#412832" stroke-width="1"/>
+<path d="M100 90 Q112 84 121 91 M139 91 Q150 85 162 90" fill="none" stroke="#8a5746" stroke-width="2.1"/>
+<path d="M127 105 Q125 110 130 111" fill="none" stroke="#d3907e" stroke-width="1.6"/>
+<path d="M116 117 Q128 123 144 116 Q144 133 130 138 Q116 133 116 117Z" fill="#7b3840" stroke="#512e38" stroke-width="2"/>
+<path d="M120 120 Q130 126 141 119 Q138 126 130 128 Q123 127 120 120Z" fill="#fff6dc" stroke="none"/>
+<path d="M122 132 Q131 126 138 133 Q132 137 128 136Z" fill="#ef8e8e" stroke="none"/>
+<path d="M112 141 L126 144 M143 140 L132 144" stroke="#ffe7c5" fill="none" stroke-width="2"/>
+<!-- hair silhouette complex with natural tufts -->
+<path d="M78 113 Q65 106 68 91 L60 97 L61 75 L52 78 Q60 60 73 52 L66 45 L89 42 L87 30 L109 34 Q124 20 133 22 L148 10 L151 28 Q178 23 193 42 L207 42 L198 58 L213 62 L202 76 L204 94 L190 90 Q188 109 178 111 Q185 91 174 83 L164 91 L162 70 Q143 98 128 100 L121 86 Q111 104 94 109 L92 91Z" fill="url(#hair)" stroke-width="3.6"/>
+<path d="M61 75 Q81 52 103 52 L93 72 L72 91 M85 39 Q112 36 126 41 Q109 57 100 76 L88 91 M124 27 Q145 29 155 41 L132 76 L122 86 M153 35 Q185 38 198 59 L176 56 L164 85" fill="#9c6046" stroke="none"/>
+<path d="M69 75 Q85 49 111 43 M89 64 Q103 45 119 42 M127 31 Q144 36 147 45 M154 32 Q177 34 189 53" fill="none" stroke="#df9c6d" stroke-width="4"/>
+<path d="M72 82 Q87 59 104 54 M101 75 Q120 52 133 40 M150 64 Q159 44 177 43" fill="none" stroke="#58352e" stroke-width="3"/>
+<path d="M148 17 L161 30 L152 40 M180 41 L194 49 M64 80 L58 85" stroke="#b87b56" stroke-width="2.6" fill="none"/>
+<path d="M65 96 Q72 102 79 100 M178 97 Q186 99 189 94" fill="none" stroke="#48303a" stroke-width="2.4"/>
+<!-- metal sparkles, all inside subject silhouette -->
+<g stroke="none" fill="#fffbef"><path d="M69 161 l2 -5 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2Z"/><circle cx="187" cy="163" r="2.5"/><circle cx="89" cy="277" r="2.4"/></g>
+</g>
+</svg>
