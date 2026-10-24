@@ -1,0 +1,12 @@
+# Optional project-scoped Codex configuration for a WYO *development copy*.
+# Copy into that project's .codex/config.toml after backing up any prior config.
+# Not automatically installed by npx skills. The Codex account must expose these models.
+
+model = "gpt-6.1-sol"
+model_reasoning_effort = "medium"
+
+[agents]
+enabled = true
+max_concurrent_threads_per_session = 2
+default_subagent_model = "gpt-6-luna"
+default_subagent_reasoning_effort = "low"

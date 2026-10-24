@@ -1,0 +1,4 @@
+interface:
+  display_name: "WYO Codex Orchestrator"
+  short_description: "Subagentes econômicos para rAthena, FluxCP e projetos WYO"
+  default_prompt: "Use $wyo-orchestrator para dividir somente tarefas independentes, preservar rathena-wyo-clean e validar o resultado."
