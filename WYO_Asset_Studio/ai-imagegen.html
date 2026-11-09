@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WYO Asset Studio — AI ImageGen</title><link rel="stylesheet" href="styles.css">
+<style>
+.ai-shell{max-width:1180px;margin:auto;padding:28px;display:grid;grid-template-columns:minmax(280px,1fr) minmax(310px,1fr);gap:22px}
+.ai-panel{background:#101b2a;border:1px solid #2c4253;border-radius:16px;padding:22px;color:#e3eff7}
+.ai-panel h2{font-size:1.25rem;margin:0 0 14px}.ai-panel label{display:block;margin:13px 0 6px;color:#c5d8e4}
+.ai-panel input,.ai-panel select,.ai-panel textarea{box-sizing:border-box;width:100%;background:#081522;border:1px solid #416073;border-radius:9px;padding:11px;color:#fff}
+.ai-panel textarea{min-height:175px;resize:vertical}.ai-panel button,.ai-panel a.ai-button{display:inline-block;cursor:pointer;border-radius:8px;border:1px solid #13ac8a;background:#0d7f70;color:white;padding:11px 15px;margin:8px 8px 0 0;text-decoration:none}
+.ai-panel .muted{color:#a5c0ce;font-size:.9rem;line-height:1.5}.ai-panel pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:370px;overflow:auto;background:#07121d;padding:14px;border-radius:9px;font-size:.85rem}
+.ai-head{max-width:1180px;margin:25px auto 0;padding:0 28px;color:#edf8fa}.ai-head a{color:#55e2c0}
+@media(max-width:780px){.ai-shell{grid-template-columns:1fr;padding:14px}.ai-head{padding:0 14px}}
+</style></head><body style="background:#08121f;color:#e3eff7">
+<header class="ai-head"><a href="index.html">← WYO Asset Studio</a><h1>AI ImageGen · MCP</h1><p>Crie um trabalho de geração para o Codex. O navegador não envia imagens nem credenciais; a execução acontece localmente pelo MCP opcional.</p></header>
+<main class="ai-shell"><section class="ai-panel"><h2>Configurar imagem</h2>
+<label for="kind">Tipo de asset</label><select id="kind"><option value="npc">NPC / Personagem</option><option value="monster">Monstro</option><option value="cutin">Cutin</option><option value="icon">Ícone</option><option value="logo">Logo</option><option value="loading">Loading</option><option value="fx">Efeito visual</option></select>
+<label for="description">Descrição / instruções</label><textarea id="description" placeholder="Descreva o personagem, pose, detalhes, roupas, armas e cores..."></textarea>
+<label for="size">Resolução solicitada (pode variar no Codex)</label><select id="size"><option value="1024x1024">1024 × 1024</option><option value="1536x1024">1536 × 1024</option><option value="1024x1536">1024 × 1536</option></select>
+<label for="filename">Nome do arquivo (PNG)</label><input id="filename" value="wyo_asset.png" maxlength="90">
+<label for="base">Imagem-base (caminho local absoluto, opcional)</label><input id="base" placeholder="C:\\artes\\base.png ou /home/usuario/base.png">
+<label for="refs">Referências (caminhos locais absolutos, um por linha; máximo 3)</label><textarea id="refs" style="min-height:90px" placeholder="C:\\artes\\estilo.png"></textarea>
+<label><input type="checkbox" id="transparent" checked style="width:auto"> Solicitar fundo transparente (não garantido pelo modelo)</label>
+<button type="button" id="build">Atualizar trabalho</button><button type="button" id="save">Baixar JSON</button><button type="button" id="copy">Copiar JSON</button>
+<p class="muted" id="message" role="status" aria-live="polite">Nenhum arquivo é enviado ou gerado automaticamente.</p></section>
+<section class="ai-panel"><h2>Trabalho preparado</h2><pre id="preview"></pre>
+<h2>Executar com Codex no seu computador</h2>
+<p class="muted">Instale o Codex CLI, autentique sua conta e instale o servidor <a href="https://github.com/vitorvls/codex-imagegen-mcp" target="_blank" rel="noopener noreferrer" style="color:#59dcb9">codex-imagegen-mcp</a>. Dentro da pasta do servidor MCP, execute:</p>
+<pre>uv run python scripts/smoke_client.py /caminho/para/wyo_imagegen_job.json</pre>
+<p class="muted">O JSON exportado usa os argumentos oficiais de <code>generate_image</code>. Ajuste os caminhos locais antes de executar. O backend padrão usa os limites do seu plano Codex; não requer chave de API. Nenhuma geração é gratuita e ilimitada por garantia.</p>
+<p class="muted">Para sheets de oito direções, gere oito imagens realmente distintas e depois use o <a href="sprite-sheet-lab.html" style="color:#59dcb9">Sprite Sheet Lab</a>. Não use espelhamento para inventar vistas.</p>
+</section></main>
+<script>
+(function(){'use strict';
+const $=id=>document.getElementById(id),kinds={npc:'personagem NPC de corpo inteiro',monster:'monstro de corpo inteiro',cutin:'cutin de personagem',icon:'ícone de item',logo:'logotipo original',loading:'ilustração de tela de carregamento',fx:'efeito visual'};
+function args(){const name=$('filename').value.trim();if(!/^[a-zA-Z0-9_-]+\.png$/.test(name))throw Error('Use um nome simples terminado em .png, sem pastas.');const ref=$('refs').value.split(/\r?\n/).map(s=>s.trim()).filter(Boolean);if(ref.length>3)throw Error('Máximo: três referências.');const prompt=$('description').value.trim();if(!prompt)throw Error('Descreva o asset antes de exportar.');return {operation:'generate',prompt:'WYO Asset Studio: gerar '+kinds[$('kind').value]+'. '+prompt+' Preserve proporções, anatomia, mãos e contato físico com armas e objetos. Cores limpas, bordas nítidas, design consistente. '+($('transparent').checked?'Fundo totalmente transparente em PNG quando possível.':'Usar o fundo descrito.'),output_path:'exports/ai/'+name,size:$('size').value,...($('base').value.trim()?{base_image:$('base').value.trim()}:{}),...(ref.length?{reference_images:ref}:{})};}
+function update(){try{const payload=args();$('preview').textContent=JSON.stringify(payload,null,2);$('message').textContent='JSON pronto. A geração ocorrerá apenas quando você executar o MCP.';return payload}catch(e){$('preview').textContent='';$('message').textContent=e.message;return null}}
+$('build').onclick=update;
+$('save').onclick=()=>{const payload=update();if(!payload)return;const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='wyo_imagegen_job.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000)};
+$('copy').onclick=async()=>{const payload=update();if(!payload)return;try{await navigator.clipboard.writeText(JSON.stringify(payload,null,2));$('message').textContent='JSON copiado.'}catch(e){$('message').textContent='Não foi possível copiar; use Baixar JSON.'}};
+$('description').value='Personagem original do World Yggdrasil Online, corpo inteiro, pose natural, rosto bem definido, mãos anatomicamente corretas e detalhes consistentes.';
+update();
+})();
+</script></body></html>
