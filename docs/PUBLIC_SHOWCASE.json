@@ -8,5 +8,18 @@
   ],
   "updates": [
     "2026-11-09: AI ImageGen integrado ao WYO Asset Studio v2.2 — editor de prompts e exportação de tarefas JSON para Codex MCP. Geração via IA requer instalação local opcional."
+  ],
+  "related_projects": [
+    {
+      "project_id": "midgardstudio",
+      "title": "Midgard Studio — WYO Digital Edition",
+      "status": "v1.2.1 Preview · Windows x64",
+      "description": "Editor portátil para arquivos de servidor e cliente, com ferramentas de validação, GRF somente leitura e menus em português brasileiro e inglês.",
+      "metadata": "docs/public-showcase/midgard-studio.json",
+      "images": [
+        "https://raw.githubusercontent.com/JokerSamaBR/MidgardStudio/main/screenshots/readme.png"
+      ],
+      "download": "https://github.com/JokerSamaBR/MidgardStudio/releases/tag/v1.2.1-wyo-preview.1"
+    }
   ]
 }
