@@ -1,10 +1,12 @@
 {
   "publish": true,
   "project_id": "assetstudio",
-  "status": "Estúdio v2.1 documentado",
-  "description": "Estúdio local com ferramentas para criar sprites, logos, efeitos, paletas e recortar sheets com oito direções já existentes. Sem depender de APIs de IA pagas.",
+  "status": "Estúdio v2.2 — AI ImageGen MCP opcional",
+  "description": "WYO Asset Studio v2.2: criação procedural local de sprites, logos, efeitos e paletas, Sprite Sheet Lab para oito direções existentes, e novo módulo AI ImageGen que prepara tarefas de geração com o Codex MCP. A geração por IA depende de Codex CLI e servidor MCP local; os motores procedurais continuam gratuitos e offline.",
   "images": [
     "docs/public-showcase/images/wyo-asset-sprite-sheet.png"
   ],
-  "updates": []
+  "updates": [
+    "2026-11-09: AI ImageGen integrado ao WYO Asset Studio v2.2 — editor de prompts e exportação de tarefas JSON para Codex MCP. Geração via IA requer instalação local opcional."
+  ]
 }
