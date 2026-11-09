@@ -15,10 +15,9 @@
     "GRF em modo leitura"
   ],
   "images": [
-    "https://raw.githubusercontent.com/JokerSamaBR/MidgardStudio/main/screenshots/readme.png",
-    "https://raw.githubusercontent.com/JokerSamaBR/MidgardStudio/main/screenshots/banner.png"
+    "https://raw.githubusercontent.com/JokerSamaBR/MidgardStudio/main/screenshots/wyo-digital-app-open.png"
   ],
-  "image_note": "Imagens originais já versionadas no repositório do aplicativo; podem representar uma interface anterior ao build 1.2.1.",
+  "image_note": "Captura real da interface do Midgard Studio aberta, fornecida pelo usuário. Imagem registrada durante o carregamento do banco de dados; não é renderização fictícia.",
   "release_url": "https://github.com/JokerSamaBR/MidgardStudio/releases/tag/v1.2.1-wyo-preview.1",
   "download_url": "https://github.com/JokerSamaBR/MidgardStudio/releases/download/v1.2.1-wyo-preview.1/MidgardStudio_WYO_Digital_Windows_x64.zip",
   "license_note": "Edição derivada do Midgard Studio de Kyoshio. Preserva MIT + Commons Clause; não anunciar como MIT irrestrita ou autorização de revenda.",
