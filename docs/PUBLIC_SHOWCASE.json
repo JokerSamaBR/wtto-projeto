@@ -7,7 +7,27 @@
     "docs/public-showcase/images/wyo-asset-sprite-sheet.png"
   ],
   "updates": [
-    "2026-11-09: AI ImageGen integrado ao WYO Asset Studio v2.2 — editor de prompts e exportação de tarefas JSON para Codex MCP. Geração via IA requer instalação local opcional."
+    {
+      "slug": "wyo-asset-studio-imagegen-v22",
+      "title": "WYO Asset Studio v2.2: integração opcional ImageGen",
+      "date": "2026-11-09",
+      "category": "Ferramentas",
+      "summary": "O Studio recebeu uma tela para preparar tarefas de geração por IA usando Codex ImageGen MCP, mantendo as ferramentas procedurais independentes.",
+      "sections": [
+        {
+          "title": "O que mudou",
+          "bullets": [
+            "Formulário de prompts, referência de imagem-base e imagens de estilo.",
+            "Exportação de tarefas JSON para execução local com Codex MCP.",
+            "Sprite Forge, Logo Forge, FX Studio e Sprite Sheet Lab preservados."
+          ]
+        },
+        {
+          "title": "Limitação atual",
+          "body": "A tela prepara as solicitações, mas não executa imagens diretamente no navegador. A geração exige Codex CLI autenticado e instalação local do MCP."
+        }
+      ]
+    }
   ],
   "related_projects": [
     {
