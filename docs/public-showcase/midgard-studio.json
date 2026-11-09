@@ -14,10 +14,15 @@
     "Edição protegida por import e backups",
     "GRF em modo leitura"
   ],
-  "images": [],
-  "image_note": "Nenhuma captura atual verificada do aplicativo foi publicada. Aguardando captura autêntica e conferida do executável.",
+  "images": [
+    "https://raw.githubusercontent.com/JokerSamaBR/MidgardStudio/main/screenshots/wyo-digital-items-open.png",
+    "https://raw.githubusercontent.com/JokerSamaBR/MidgardStudio/main/screenshots/wyo-digital-mobs-open.png",
+    "https://raw.githubusercontent.com/JokerSamaBR/MidgardStudio/main/screenshots/wyo-digital-splash.png"
+  ],
+  "image_note": "Links preparados para três capturas reais do usuário: editor de Itens, editor de Monstros e Splash. Os arquivos ainda precisam ser enviados para MidgardStudio/screenshots; não exibir imagens indisponíveis como capturas publicadas.",
   "release_url": "https://github.com/JokerSamaBR/MidgardStudio/releases/tag/v1.2.1-wyo-preview.1",
   "download_url": "https://github.com/JokerSamaBR/MidgardStudio/releases/download/v1.2.1-wyo-preview.1/MidgardStudio_WYO_Digital_Windows_x64.zip",
   "license_note": "Edição derivada do Midgard Studio de Kyoshio. Preserva MIT + Commons Clause; não anunciar como MIT irrestrita ou autorização de revenda.",
-  "updated_on": "2026-11-09"
+  "updated_on": "2026-11-09",
+  "images_pending_upload": true
 }
