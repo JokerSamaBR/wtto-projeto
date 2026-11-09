@@ -19,10 +19,10 @@
     "https://raw.githubusercontent.com/JokerSamaBR/MidgardStudio/main/screenshots/wyo-digital-mobs-open.png",
     "https://raw.githubusercontent.com/JokerSamaBR/MidgardStudio/main/screenshots/wyo-digital-splash.png"
   ],
-  "image_note": "Links preparados para três capturas reais do usuário: editor de Itens, editor de Monstros e Splash. Os arquivos ainda precisam ser enviados para MidgardStudio/screenshots; não exibir imagens indisponíveis como capturas publicadas.",
+  "image_note": "Capturas reais do Midgard Studio WYO Digital Edition v1.2.1, fornecidas pelo usuário: Itens, Monstros e tela de carregamento. PNGs publicados na pasta screenshots/ do repositório oficial.",
   "release_url": "https://github.com/JokerSamaBR/MidgardStudio/releases/tag/v1.2.1-wyo-preview.1",
   "download_url": "https://github.com/JokerSamaBR/MidgardStudio/releases/download/v1.2.1-wyo-preview.1/MidgardStudio_WYO_Digital_Windows_x64.zip",
   "license_note": "Edição derivada do Midgard Studio de Kyoshio. Preserva MIT + Commons Clause; não anunciar como MIT irrestrita ou autorização de revenda.",
   "updated_on": "2026-11-09",
-  "images_pending_upload": true
+  "images_pending_upload": false
 }
