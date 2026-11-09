@@ -1,0 +1,10 @@
+{
+  "publish": true,
+  "project_id": "assetstudio",
+  "status": "Estúdio v2.1 documentado",
+  "description": "Estúdio local com ferramentas para criar sprites, logos, efeitos, paletas e recortar sheets com oito direções já existentes. Sem depender de APIs de IA pagas.",
+  "images": [
+    "docs/public-showcase/images/wyo-asset-sprite-sheet.png"
+  ],
+  "updates": []
+}
