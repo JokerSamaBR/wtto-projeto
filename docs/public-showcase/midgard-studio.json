@@ -14,10 +14,8 @@
     "Edição protegida por import e backups",
     "GRF em modo leitura"
   ],
-  "images": [
-    "https://raw.githubusercontent.com/JokerSamaBR/MidgardStudio/main/screenshots/wyo-digital-app-open.png"
-  ],
-  "image_note": "Captura real da interface do Midgard Studio aberta, fornecida pelo usuário. Imagem registrada durante o carregamento do banco de dados; não é renderização fictícia.",
+  "images": [],
+  "image_note": "Nenhuma captura atual verificada do aplicativo foi publicada. Aguardando captura autêntica e conferida do executável.",
   "release_url": "https://github.com/JokerSamaBR/MidgardStudio/releases/tag/v1.2.1-wyo-preview.1",
   "download_url": "https://github.com/JokerSamaBR/MidgardStudio/releases/download/v1.2.1-wyo-preview.1/MidgardStudio_WYO_Digital_Windows_x64.zip",
   "license_note": "Edição derivada do Midgard Studio de Kyoshio. Preserva MIT + Commons Clause; não anunciar como MIT irrestrita ou autorização de revenda.",
