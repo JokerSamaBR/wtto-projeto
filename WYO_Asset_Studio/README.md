@@ -41,3 +41,28 @@ python render/sheet_pipeline.py --input sua_sheet_de_referencia.png --output exp
 ```
 
 **Limite:** esta função processa frames fornecidos. Não cria vistas inéditas a partir de um único personagem frontal. A demonstração foi processada de uma sheet de oito desenhos pré-existentes; não foi desenhada inteiramente pelo motor procedural.
+
+## v2.2 — AI ImageGen opcional (Codex MCP)
+
+Abra `ai-imagegen.html` pelo menu principal. O novo módulo prepara um arquivo `wyo_imagegen_job.json` compatível com a ferramenta `generate_image` do projeto independente [codex-imagegen-mcp](https://github.com/vitorvls/codex-imagegen-mcp).
+
+O formulário oferece tipo de asset, prompt, resolução solicitada, PNG de saída, imagem-base e até três referências por caminhos locais. Use **Baixar JSON** para exportar o trabalho. Nenhuma referência é enviada pelo navegador e **não existe geração direta no navegador**.
+
+### Instalação opcional no seu computador
+
+Pré-requisitos: Python 3.11+, Node.js, `uv`, Codex CLI e acesso ao Codex no seu plano ChatGPT.
+
+```bash
+npm install -g @openai/codex
+codex login --device-auth
+git clone https://github.com/vitorvls/codex-imagegen-mcp
+cd codex-imagegen-mcp
+uv sync
+uv run python scripts/smoke_client.py /caminho/para/wyo_imagegen_job.json
+```
+
+O caminho do JSON pode ser absoluto (no Windows, por exemplo `C:\\Users\\Usuario\\Downloads\\wyo_imagegen_job.json`). Os campos `base_image` e `reference_images` também devem apontar para arquivos existentes na máquina que executa o MCP. A saída relativa `exports/ai/nome.png` é resolvida pelo servidor a partir de `IMAGEGEN_ROOT` (ou seu diretório de trabalho padrão).
+
+**Custos e limitações:** no backend `codex` padrão, a geração consome os limites disponíveis no Codex do plano ChatGPT. Não usa API paga obrigatória. O tamanho de imagem, a transparência e a fidelidade às referências são solicitações, não garantias. O backend depende de comportamento não documentado do Codex e pode precisar de atualização. Não envie fotos ou materiais privados para repositórios públicos. O WYO Asset Studio continua funcionando offline, mesmo sem a integração.
+
+**Sprites:** o AI ImageGen gera ilustrações independentes. Não cria automaticamente oito direções consistentes; exporte oito vistas autorais separadas e organize-as no Sprite Sheet Lab. Não invente nem espelhe frames.
