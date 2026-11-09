@@ -16,8 +16,13 @@
       "status": "v1.2.1 Preview · Windows x64",
       "description": "Editor portátil para arquivos de servidor e cliente, com ferramentas de validação, GRF somente leitura e menus em português brasileiro e inglês.",
       "metadata": "docs/public-showcase/midgard-studio.json",
-      "images": [],
-      "download": "https://github.com/JokerSamaBR/MidgardStudio/releases/tag/v1.2.1-wyo-preview.1"
+      "images": [
+        "https://raw.githubusercontent.com/JokerSamaBR/MidgardStudio/main/screenshots/wyo-digital-items-open.png",
+        "https://raw.githubusercontent.com/JokerSamaBR/MidgardStudio/main/screenshots/wyo-digital-mobs-open.png",
+        "https://raw.githubusercontent.com/JokerSamaBR/MidgardStudio/main/screenshots/wyo-digital-splash.png"
+      ],
+      "download": "https://github.com/JokerSamaBR/MidgardStudio/releases/tag/v1.2.1-wyo-preview.1",
+      "images_pending_upload": true
     }
   ]
 }
